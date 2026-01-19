@@ -227,24 +227,24 @@ def StronaDlugoscZakotwienia():
     c5, c6, c_a4_glob, c_rodzaj = st.columns([0.9,0.9,1.3,0.9])
     with c5:    
         st.markdown("Warunki przyczepności", unsafe_allow_html=True)        
-        c6_str = st.radio(
+        warunki = st.radio(  # POPRAWKA: Zmiana nazwy zmiennej z c6_str na warunki
             "c5_label", 
             ["Dobre", "Złe"], 
             index=0, 
             label_visibility="collapsed", 
             horizontal=True,
-            key="radio_c5"  # Dobra praktyka: unikalny klucz
+            key="radio_c5"
         )
     with c6:
         st.markdown("Kształt pręta", unsafe_allow_html=True)        
-        c6_str = st.radio(
+        ksztalt_preta = st.radio(  # POPRAWKA: Zmiana nazwy zmiennej z c6_str na ksztalt_preta
             "c6_label", 
             ["Proste", "Inne (haki, pętle)"], 
             index=0, 
             label_visibility="collapsed", 
             horizontal=True,
-            key="radio_c6"  # Dobra praktyka: unikalny klucz
-        )              
+            key="radio_c6"
+        )           
     with c_a4_glob:
         st.markdown(r"$\alpha_4$: Czy występuje zbrojenie poprzeczne przyspojone?", unsafe_allow_html=True)        
         u_a4_str = st.radio(
@@ -440,4 +440,5 @@ def StronaDlugoscZakotwienia():
             st.latex(rf"l_{{bd,req}} = \max(l_{{bd}}; l_{{b,min}}) = \mathbf{{{res['lb_final']:.1f}}} \text{{ mm}}")
 
 if __name__ == "__main__":
+
     StronaDlugoscZakotwienia()
